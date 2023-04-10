@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
         myDb = new DatabaseHelper(this);
 
-        addData = findViewById(R.id.insertData);
-        viewData = findViewById(R.id.viewData);
-        updateData = findViewById(R.id.updateData);
-        deleteData = findViewById(R.id.deleteData);
+        addData = findViewById(R.id.insrtData);
+        viewData = findViewById(R.id.vData);
+        updateData = findViewById(R.id.udtData);
+        deleteData = findViewById(R.id.delData);
 
         // calling for the addData function.
         addData();
@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
         addData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editName = findViewById(R.id.studentName);
-                editCourse = findViewById(R.id.studentCourse);
-                editMarks = findViewById(R.id.studentMark);
+                editName = findViewById(R.id.sName);
+                editCourse = findViewById(R.id.sCourse);
+                editMarks = findViewById(R.id.sMark);
                 boolean inserted = myDb.insertData(editName.getText().toString(), editCourse.getText().toString(), editMarks.getText().toString());
 
                 // get some output to the screen
@@ -97,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
         updateData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editName = findViewById(R.id.studentName);
-                editCourse = findViewById(R.id.studentCourse);
-                editMarks = findViewById(R.id.studentMark);
-                editUpdateMarks = findViewById(R.id.markFUpdate);
+                editName = findViewById(R.id.sName);
+                editCourse = findViewById(R.id.sCourse);
+                editMarks = findViewById(R.id.sMark);
+                editUpdateMarks = findViewById(R.id.mFUpdate);
 
                 Log.i("DATA", editUpdateMarks.getText().toString());
                 boolean isUpdate = myDb.updateData(editUpdateMarks.getText().toString(), editName.getText().toString(), editCourse.getText().toString(), editMarks.getText().toString());
