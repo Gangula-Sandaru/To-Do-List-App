@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
 
-    EditText editName, editCourse, editMarks, editUpdateMarks;
+    EditText editName, editCourse, editUpdateMarks;
     Button addData, viewData, deleteData, updateData;
 
     @Override
@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 editName = findViewById(R.id.sName);
                 editCourse = findViewById(R.id.sCourse);
-                editMarks = findViewById(R.id.sMark);
-                boolean inserted = myDb.insertData(editName.getText().toString(), editCourse.getText().toString(), editMarks.getText().toString());
+
+                boolean inserted = myDb.insertData(editName.getText().toString(), editCourse.getText().toString());
 
                 // get some output to the screen
-                Log.i("DATA", editName.getText().toString() + " " + editCourse.getText().toString() + " " + editMarks.getText().toString());
+                Log.i("DATA", editName.getText().toString() + " " + editCourse.getText().toString());
 
                 if (inserted){
                     Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_SHORT).show();
@@ -99,11 +99,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 editName = findViewById(R.id.sName);
                 editCourse = findViewById(R.id.sCourse);
-                editMarks = findViewById(R.id.sMark);
                 editUpdateMarks = findViewById(R.id.mFUpdate);
 
                 Log.i("DATA", editUpdateMarks.getText().toString());
-                boolean isUpdate = myDb.updateData(editUpdateMarks.getText().toString(), editName.getText().toString(), editCourse.getText().toString(), editMarks.getText().toString());
+                boolean isUpdate = myDb.updateData(editUpdateMarks.getText().toString(), editName.getText().toString(), editCourse.getText().toString());
                 if(isUpdate){
                     Toast.makeText(MainActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
 

@@ -12,7 +12,7 @@
         android:id="@+id/titleT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student Marks"
+        android:text="To Do List"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,7 +28,7 @@
         android:id="@+id/nameT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="Task Name"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -44,7 +44,7 @@
         android:layout_width="311dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="Enter your Name"
+        android:hint="Enter your task title"
         android:inputType="text"
         android:text=""
         android:textColor="@color/black"
@@ -60,23 +60,38 @@
         android:id="@+id/courseT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Course"
+        android:text="Your task description"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintHorizontal_bias="0.224"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.326" />
+        app:layout_constraintVertical_bias="0.329" />
+
+    <TextView
+        android:id="@+id/courseT2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update task"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
 
     <EditText
         android:id="@+id/sCourse"
         android:layout_width="311dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="Enter your Course"
+        android:hint="Description"
         android:inputType="text"
         android:text=""
         android:textColor="@color/black"
@@ -88,37 +103,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.402" />
 
-    <TextView
-        android:id="@+id/markT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Marks"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
-
-    <EditText
-        android:id="@+id/sMark"
-        android:layout_width="311dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="Enter your Marks"
-        android:inputType="text"
-        android:text=""
-        android:textColor="@color/black"
-        android:textColorHint="@color/hintColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.66"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
 
     <EditText
         android:id="@+id/mFUpdate"
@@ -132,24 +116,22 @@
         android:textColorHint="@color/hintColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.798" />
-
-
+        app:layout_constraintVertical_bias="0.593" />
 
     <Button
         android:id="@+id/insrtData"
         android:layout_width="310dp"
         android:layout_height="46dp"
-        android:text="Insert data"
+        android:text="Add data"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659" />
+        app:layout_constraintVertical_bias="0.727" />
 
     <Button
         android:id="@+id/vData"
@@ -161,7 +143,7 @@
         app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727" />
+        app:layout_constraintVertical_bias="0.794" />
 
     <Button
         android:id="@+id/udtData"

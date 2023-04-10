@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_1 = "ID";
     public static final String COL_2 = "NAME";
     public static final String COL_3 = "COURSE";
-    public static final String COL_4 = "MARK";
+
 
     public DatabaseHelper(@Nullable Context context) {
         super(context,DATABASE_NAME, null, 1);
@@ -30,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         // SQL query for the database
-        sqLiteDatabase.execSQL("create table " + TABLE_NAME + "(ID INTEGER primary key autoincrement, " + "NAME TEXT, COURSE TEXT, MARK INTERGER)");
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME + "(ID INTEGER primary key autoincrement, " + "NAME TEXT, COURSE TEXT)");
     }
 
     @Override
@@ -41,13 +41,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData(String name, String course, String marks){
+    public boolean insertData(String name, String course){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, course);
-        contentValues.put(COL_4, marks);
+
 
         long result  = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1){
@@ -64,13 +64,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean updateData(String id, String name, String course, String marks){
+    public boolean updateData(String id, String name, String course){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, id);
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, course);
-        contentValues.put(COL_4, marks);
+
         db.update(TABLE_NAME, contentValues, "id = ? ", new String[] {id});
         return  true;
     }
