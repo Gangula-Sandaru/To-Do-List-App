@@ -12,11 +12,11 @@ import com.google.android.material.tabs.TabLayout;
 import java.net.ConnectException;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "students.db";
+    public static final String DATABASE_NAME = "to_do_list.db";
     public static final String TABLE_NAME= "student_table";
     public static final String COL_1 = "ID";
-    public static final String COL_2 = "NAME";
-    public static final String COL_3 = "COURSE";
+    public static final String COL_2 = "TASK_TITLE";
+    public static final String COL_3 = "TASK_DESCRIPTION";
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -30,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         // SQL query for the database
-        sqLiteDatabase.execSQL("create table " + TABLE_NAME + "(ID INTEGER primary key autoincrement, " + "NAME TEXT, COURSE TEXT)");
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME + "(ID INTEGER primary key autoincrement, " + "TASK_TITLE TEXT, TASK_DESCRIPTION TEXT)");
     }
 
     @Override
@@ -41,12 +41,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData(String name, String course){
+    public boolean insertData(String title, String description){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, name);
-        contentValues.put(COL_3, course);
+        contentValues.put(COL_2, title);
+        contentValues.put(COL_3, description);
 
 
         long result  = db.insert(TABLE_NAME, null, contentValues);
@@ -64,12 +64,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean updateData(String id, String name, String course){
+    public boolean updateData(String id, String title, String description){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, id);
-        contentValues.put(COL_2, name);
-        contentValues.put(COL_3, course);
+        contentValues.put(COL_2, title);
+        contentValues.put(COL_3, description);
 
         db.update(TABLE_NAME, contentValues, "id = ? ", new String[] {id});
         return  true;
