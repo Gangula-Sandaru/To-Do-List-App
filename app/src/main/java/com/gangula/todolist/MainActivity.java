@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
 
-    EditText editName, editCourse, editUpdateMarks;
+    EditText editTitle, editDescription, mFUpdate;
     Button addData, viewData, deleteData, updateData;
 
     @Override
@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
         addData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editName = findViewById(R.id.sName);
-                editCourse = findViewById(R.id.sCourse);
+                editTitle = findViewById(R.id.taskTitle);
+                editDescription = findViewById(R.id.taskDescription);
 
-                boolean inserted = myDb.insertData(editName.getText().toString(), editCourse.getText().toString());
+                boolean inserted = myDb.insertData(editTitle.getText().toString(), editDescription.getText().toString());
 
                 // get some output to the screen
-                Log.i("DATA", editName.getText().toString() + " " + editCourse.getText().toString());
+                Log.i("DATA", editTitle.getText().toString() + " " + editDescription.getText().toString());
 
                 if (inserted){
                     Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_SHORT).show();
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 StringBuffer buffer = new StringBuffer();
                 while (result.moveToNext()){
                     buffer.append("ID: " + result.getString(0) + "\n");
-                    buffer.append("Name: " + result.getString(1) + "\n");
-                    buffer.append("Course: " + result.getString(2) + "\n");
-                    buffer.append("Mark: " + result.getString(3) + "\n");
+                    buffer.append("Task Title: " + result.getString(1) + "\n");
+                    buffer.append("Description: " + result.getString(2) + "\n");
+
                 }
 
                 showMessage("list of Data", buffer.toString());
@@ -97,12 +97,12 @@ public class MainActivity extends AppCompatActivity {
         updateData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editName = findViewById(R.id.sName);
-                editCourse = findViewById(R.id.sCourse);
-                editUpdateMarks = findViewById(R.id.mFUpdate);
+                editTitle = findViewById(R.id.taskTitle);
+                editDescription = findViewById(R.id.taskDescription);
+                mFUpdate = findViewById(R.id.mFUpdate);
 
-                Log.i("DATA", editUpdateMarks.getText().toString());
-                boolean isUpdate = myDb.updateData(editUpdateMarks.getText().toString(), editName.getText().toString(), editCourse.getText().toString());
+                Log.i("DATA", mFUpdate.getText().toString());
+                boolean isUpdate = myDb.updateData(mFUpdate.getText().toString(), editTitle.getText().toString(), editDescription.getText().toString());
                 if(isUpdate){
                     Toast.makeText(MainActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
 
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         deleteData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Integer deleteData = myDb.deleteData(editUpdateMarks.getText().toString());
+                Integer deleteData = myDb.deleteData(mFUpdate.getText().toString());
                 if(deleteData > 0){
                     Toast.makeText(MainActivity.this, "Data Deleted", Toast.LENGTH_SHORT).show();
                 }else{
